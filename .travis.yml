@@ -1,7 +1,12 @@
 language: node_js
 node_js:
   - "8"
-script:
-  - echo 'Build starts!!'
-  - echo 'Installing Deps!'
-  - echo 'Testing!'
+jobs:
+  include:
+    - stage: functions
+      before_script:
+        - cd functions/catly/server
+      script:
+        - echo 'function!!'
+        - echo 'Installing Deps!'
+        - npm testing
